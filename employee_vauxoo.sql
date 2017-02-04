@@ -8,6 +8,7 @@ CREATE TABLE employee (
 	first_name character varying(30),
 	last_name character varying(30),
 	department_id integer,
+	boss_id integer,
 	CONSTRAINT pk_employee PRIMARY KEY(id)
 	
 );
@@ -35,6 +36,7 @@ CREATE TABLE employee_has_hobby (
 
 -- employee foreign key
 ALTER TABLE only employee add CONSTRAINT fk_employee_department_id FOREIGN KEY(department_id) REFERENCES public.employee_department(id);
+ALTER TABLE only employee add CONSTRAINT fk_employee_boss_id FOREIGN KEY(employee_id) REFERENCES public.employee(id);
 
 -- employee_hobby foreign keys
 ALTER TABLE only employee_has_hobby add CONSTRAINT fk_employee_has_hobby_employee_id FOREIGN KEY(employee_id) REFERENCES public.employee(id);
