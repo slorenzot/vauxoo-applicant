@@ -5,12 +5,22 @@ Your module documentation here
 
 class PrimeClass(object):
     """
-    Your class documentation here
+    Prime Number Validator
     """
 
     def is_prime(self, num_int):
         """
-        Your method documentation here
+        Return True with prime numbers, False in other case
         """
-        # your primes code here
-        return "not implement yet"  # Remove this dummy line
+        # for definition prime number are bigger than 1
+        if num_int == 1:
+            # return False (No Prime)
+            return False
+        # Test all numbers in range 1 to num_int
+        for num in range(2, num_int):
+            # if found a valid division return False (No Prime)
+            if (num_int % num) == 0:
+                return False  # not is prime
+
+        # Its Prime
+        return True
